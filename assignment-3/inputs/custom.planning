@@ -1,0 +1,14 @@
+# Initial state
+initial: (Occupied(0, 1) & Occupied(0, 0) & DeliverLoc(DL1) & DeliverLoc(DL2) & DeliverLoc(DL3) & Drone(D1) & Drone(D2) & At(WH, 0, 0) & At(D1, 0, 0) & At(D2, 0, 1) & At(DL1, 1, 2) & At(DL2, 2, 1) & At(DL3, 3, 3) & Cell(0, 0) & Cell(0, 1) & Cell(0, 2) & Cell(0, 3) & Cell(1, 0) & Cell(1, 1) & Cell(1, 2) & Cell(1, 3) & Cell(2, 0) & Cell(2, 1) & Cell(2, 2) & Cell(2, 3) & Cell(3, 0) & Cell(3, 1) & Cell(3, 2) & Cell(3, 3))
+# Goals
+goals: (At(D1, 3, 3) & At(D2, 3, 2))
+# Action MoveUp(d)
+action: MoveUp(d); (Drone(d) & At(d, i, j) & Cell(i-1, j) & ~Occupied(i-1, j)) ; (At(d, i-1, j) & ~At(d, i, j) & Occupied(i-1, j)))
+# Action MoveDown(d)
+action: MoveDown(d); (Drone(d) & At(d, i, j) & Cell(i+1, j) & ~Occupied(i+1, j)) ; (At(d, i+1, j) & ~At(d, i, j) & Occupied(i+1, j)))
+# Action MoveRight(d)
+action: MoveRight(d); (Drone(d) & At(d, i, j) & Cell(i, j+1) & ~Occupied(i, j+1)) ; (At(d, i, j+1) & ~At(d, i, j) & Occupied(i, j+1)))
+# Action MoveLeft(d)
+action: MoveLeft(d); (Drone(d) & At(d, i, j) & Cell(i, j-1) & ~Occupied(i, j-1)) ; (At(d, i, j-1) & ~At(d, i, j) & Occupied(i, j-1)))
+# T_max
+t_max: 13
